@@ -18,7 +18,9 @@ public class health : MonoBehaviour
     { Health -= damage;
         Debug.Log("ouch");
     if (Health < 1) { Debug.Log("die)");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Cursor.lockState = CursorLockMode.None;
+
+            SceneManager.LoadScene("menu");
         }
        
     }

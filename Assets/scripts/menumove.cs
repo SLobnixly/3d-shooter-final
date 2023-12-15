@@ -19,6 +19,7 @@ public class menumove : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        Cursor.lockState = CursorLockMode.None;
 
     }
      public void QuitGame()

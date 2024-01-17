@@ -74,13 +74,6 @@ public class playermove : MonoBehaviour
            }
         }
 
-       
-
-
-
-
-
-
 
         characterController.Move(movedirection * movespeed * Time.deltaTime);
 

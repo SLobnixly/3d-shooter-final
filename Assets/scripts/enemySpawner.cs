@@ -5,31 +5,32 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public float spawnInterval = 2.0f;
-    public int maxEnemies = 5;
-    private int currentEnemies = 0;
+    public GameObject Eprefab;
 
-    void Start()
-    {
-        InvokeRepeating("SpawnEnemy", 0.0f, spawnInterval);
-    }
 
-   public  void SpawnEnemy()
+
+
+
+    public int enemyMax = 3;
+    int enemys = 0;
+
+    // Start is called before the first frame update
+    private void Update()
     {
-        if (currentEnemies < maxEnemies)
+        if (enemys < 3) { 
+          for (enemys = 0; enemys < enemyMax; enemys++)
         {
-            GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-            if (newEnemy != null)
-            {
-                currentEnemies++;
-            }
-            else
-            {
-                Debug.LogError("Failed to instantiate enemy!");
-            }
+            
+            GameObject enemy = Instantiate(Eprefab, transform.position, Quaternion.identity);
         }
     }
-    public void EnemyDied()
-    {currentEnemies-=1;}
+    }
+      
+    
+    public void dead() 
+    {
+    enemys= enemys- 1;
+    }
 }
+
+    

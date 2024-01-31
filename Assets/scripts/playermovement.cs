@@ -11,7 +11,7 @@ public class playermove : MonoBehaviour
     private Vector3 movedirection;
     private Vector3 movedirectionZ;
     private Vector3 movedirectionX;
-    private Vector3 movedirectionY;
+  
     private Vector3 velocity;
 
 
@@ -20,10 +20,7 @@ public class playermove : MonoBehaviour
 
     public CharacterController characterController;
 
-    private float baselinegravity;
-    private float xmove;
-    private float zmove;
-    private Vector3 move;
+
 
 
     // Start is called before the first frame update

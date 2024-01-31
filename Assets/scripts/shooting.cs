@@ -8,28 +8,47 @@ public class shooting : MonoBehaviour
 {
     public Camera cam;
     public GameObject enemySpawner;
-
+    private EnemySpawner dying;
     private RaycastHit hit;
     private Ray ray;
     int points;
     public TMP_Text score;
+
+
+    private void Start()
+    {
+        dying = GameObject.FindObjectOfType<EnemySpawner>();
+    }
     // Update is called once per frame
+
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.tag.Equals("npc"))
+                Debug.Log(hit.collider.name);
+                if (hit.collider.name.Equals("Eprefab(Clone)"))
                 {
-                    Destroy(hit.collider.gameObject);
-                    enemySpawner.GetComponent<EnemySpawner>().EnemyDied();
+                    dying.dead();
                     points++;
                     goob();
+                    Destroy(hit.collider.gameObject);
+                    Debug.Log("You are dead no big suprise");
                 }
+
             }
         }
+
+
+
+
+
+
+
+       
         
     }
     void goob()

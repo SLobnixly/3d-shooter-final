@@ -7,25 +7,29 @@ public class Enemydamage : MonoBehaviour
     int damage;
 
     health Health;
-    EnemySpawner spawner;
+    
     // Start is called before the first frame update
     void Start()
     {
-        damage = Random.Range(1, 3);
+        damage = Random.Range(1, 2);
         Health = GameObject.FindGameObjectWithTag("Player").GetComponent<health>();
-        spawner = GameObject.FindGameObjectWithTag("spawner").GetComponent<EnemySpawner>();
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "Player")
+        Debug.Log(collision.collider.name);
+        if (collision.collider.name == "playerPrefab")
         {
             Debug.Log("guh!!");
             Health.TakeDamage(damage);
-            spawner.EnemyDied();
+
             Destroy(gameObject);
-            
+
         }
+       
     }
+
+    
+     
 
     // Update is called once per frame
     void Update()
